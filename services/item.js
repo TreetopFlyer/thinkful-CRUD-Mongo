@@ -13,7 +13,7 @@ exports.save = function(inName, inCallbackDone, inCallbackError){
 
 exports.delete = function(inName, inCallbackDone, inCallbackError){
     Item.findOneAndRemove({name:inName}, function(inError, inItem){
-       if(inError){
+       if(inError || !inItem){
            inCallbackError(inError);
        } 
        else{
